@@ -1,5 +1,10 @@
 export const envPrototypes = {
   PORT: Number(),
+  DB_HOST: String(),
+  DB_NAME: String(),
+  DB_USER: String(),
+  DB_PASS: String(),
+  DB_PORT: String(),
 };
 
 type IEnv = typeof envPrototypes;
