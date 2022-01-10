@@ -4,7 +4,9 @@
 
 import { DomainError } from '../../shared/core/domain/domain-errors';
 
-export type IUserError = UserError.InvalidUserInfoError;
+export type IUserError =
+  | UserError.InvalidUserInfoError
+  | UserError.GenericMessageError;
 
 export namespace UserError {
   export class InvalidUserInfoError extends DomainError {
@@ -15,6 +17,16 @@ export namespace UserError {
     public static create(fieldName?: string): InvalidUserInfoError {
       const propNameOrDefaultError = fieldName || 'Alguma propriedade está';
       return new InvalidUserInfoError(propNameOrDefaultError);
+    }
+  }
+
+  export class GenericMessageError extends DomainError {
+    public constructor(message: string) {
+      super(message);
+    }
+
+    public static create(message): GenericMessageError {
+      return new GenericMessageError(message);
     }
   }
 }
