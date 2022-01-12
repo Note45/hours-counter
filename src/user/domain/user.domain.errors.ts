@@ -25,7 +25,7 @@ export namespace UserError {
       super(message);
     }
 
-    public static create(message): GenericMessageError {
+    public static create(message: string): GenericMessageError {
       return new GenericMessageError(message);
     }
   }

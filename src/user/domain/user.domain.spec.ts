@@ -34,4 +34,19 @@ describe(describeFailedTest, () => {
 
     expect(userCreated).toEqual(new UserError.InvalidUserInfoError('email'));
   });
+
+  it('should be able to test error invalid password', () => {
+    const userCreated = User.create({
+      name: 'Test Name',
+      password: '123',
+      email: 'teste@test.com',
+      phone: '5586998345689',
+    } as IUser) as IUserError;
+
+    expect(userCreated).toEqual(
+      new UserError.GenericMessageError(
+        'The password field has no minimum length!',
+      ),
+    );
+  });
 });

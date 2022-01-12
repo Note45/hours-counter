@@ -1,4 +1,5 @@
 import { UniqueEntityID } from '../../../shared/utils/unique-entity-id.utils';
+import { IPassword } from './password.interface';
 
 export interface IUser {
   id?: UniqueEntityID | string;
@@ -6,7 +7,7 @@ export interface IUser {
   name: string;
   email: string;
   phone: string;
-  password: string;
+  password: string | IPassword;
   createdAt?: Date;
   updatedAt?: Date;
 }

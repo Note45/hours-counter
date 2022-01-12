@@ -3,6 +3,9 @@ import { IUser } from './interfaces/user.interface';
 import { UniqueEntityID } from '../../shared/utils/unique-entity-id.utils';
 import { Guard } from '../../shared/utils/guard.utils';
 import { UserError, IUserError } from './user.domain.errors';
+import { Password } from './props/password';
+import { IPassword } from './interfaces/password.interface';
+import { DomainError } from '../../shared/core/domain/domain-errors';
 
 export type IUserProps = IUser;
 
@@ -55,6 +58,20 @@ export class User extends Entity<IUserProps> {
 
     if (!guardResult.succeeded) {
       return new UserError.InvalidUserInfoError(guardResult?.message || '');
+    }
+
+    if (!(props.password instanceof Password)) {
+      const passwordOrError: DomainError | Password = Password.create({
+        value: props.password,
+      });
+
+      // Add test to test this case!
+      if (passwordOrError instanceof DomainError) {
+        return passwordOrError as unknown as IUserError;
+      }
+
+      // eslint-disable-next-line no-param-reassign
+      props.password = passwordOrError;
     }
 
     return new User(props, new UniqueEntityID(id));
