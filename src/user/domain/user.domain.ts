@@ -4,7 +4,6 @@ import { UniqueEntityID } from '../../shared/utils/unique-entity-id.utils';
 import { Guard } from '../../shared/utils/guard.utils';
 import { UserError, IUserError } from './user.domain.errors';
 import { Password } from './props/password';
-import { IPassword } from './interfaces/password.interface';
 import { DomainError } from '../../shared/core/domain/domain-errors';
 
 export type IUserProps = IUser;
@@ -12,6 +11,10 @@ export type IUserProps = IUser;
 export type UserType = IUserError | User;
 
 export class User extends Entity<IUserProps> {
+  get id() {
+    return this.props.id;
+  }
+
   get name() {
     return this.props.name;
   }
@@ -25,7 +28,7 @@ export class User extends Entity<IUserProps> {
   }
 
   get password() {
-    return this.props.password;
+    return this.props.password as Password;
   }
 
   get createdAt() {
