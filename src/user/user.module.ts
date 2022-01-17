@@ -1,4 +1,5 @@
 import { HttpModule, Module } from '@nestjs/common';
+import { UserMapper } from './domain/mapper/user.mapper';
 import { UserRepoMongoose } from './infra/repository/implementation/user.repository';
 import {
   UserRepoModuleConfig,
@@ -11,6 +12,7 @@ import {
   imports: [UserRepoModuleConfig.toImport.Entity(), HttpModule],
 
   providers: [
+    UserMapper,
     UserRepoMongoose,
     { provide: userRepoProviderName, useClass: UserRepoMongoose },
   ],
