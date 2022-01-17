@@ -14,7 +14,7 @@ export namespace UserRepoErrors {
       super(fieldName);
     }
 
-    public create(fieldName: string): InvalidUserInfoError {
+    public static create(fieldName: string): InvalidUserInfoError {
       const propNameOrDefaultError = fieldName || 'Some field is invalid';
       return new InvalidUserInfoError(propNameOrDefaultError);
     }
