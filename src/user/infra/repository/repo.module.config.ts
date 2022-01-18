@@ -1,6 +1,6 @@
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserEntity, UserSchema } from '../entities/user.entity';
-import { UserRepoMongoose } from './implementation/user.repository';
+import { UserRepoMongoose } from './implementation/user.repository.mongoose';
 
 export const userRepoProviderName = 'UserRepoModel';
 

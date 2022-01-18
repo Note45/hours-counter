@@ -1,6 +1,7 @@
-import { HttpModule, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
 import { UserMapper } from './domain/mapper/user.mapper';
-import { UserRepoMongoose } from './infra/repository/implementation/user.repository';
+import { UserRepoMongoose } from './infra/repository/implementation/user.repository.mongoose';
 import {
   UserRepoModuleConfig,
   userRepoProviderName,
