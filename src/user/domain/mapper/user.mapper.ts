@@ -45,7 +45,7 @@ export class UserMapper {
       ...clientePersistence
     } = this.toPersistence(user);
 
-    const userDTO = { ...clientePersistence, id: _id };
+    const userDTO = { ...clientePersistence, id: _id.toString() };
 
     return userDTO;
   }
