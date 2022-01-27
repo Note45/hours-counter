@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { injectUserRepo } from 'src/user/infra/repository/user.repo.decorator';
-import { UserMapper } from '../../../domain/mapper/user.mapper';
-import { User } from '../../../domain/user.domain';
-import { IUserError } from '../../../domain/user.domain.errors';
-import { IUserRepo } from '../../repository/user.repo';
+import { IUseCase } from '../../../shared/utils/use-case';
+import { UserMapper } from '../../domain/mapper/user.mapper';
+import { User } from '../../domain/user.domain';
+import { IUserError } from '../../domain/user.domain.errors';
+import { IUserRepo } from '../../infra/repository/user.repo';
 import { CreateNewUserDTO } from './create-new-user.dto';
 import {
   CreateNewUserError,
@@ -12,8 +13,10 @@ import {
 
 type IResponse = ICreateNewUserError | User;
 
+export type ICreateNewUserUseCase = IUseCase<CreateNewUserDTO, IResponse>;
+
 @Injectable()
-export class CreateNewUserUseCase {
+export class CreateNewUserUseCase implements ICreateNewUserUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(
     @injectUserRepo private repository: IUserRepo,

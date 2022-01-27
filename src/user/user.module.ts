@@ -6,15 +6,20 @@ import {
   UserRepoModuleConfig,
   userRepoProviderName,
 } from './infra/repository/repo.module.config';
+import {
+  CreateNewUserController,
+  CreateNewUserUseCase,
+} from './useCases/createNewUser';
 
 @Module({
-  controllers: [],
+  controllers: [CreateNewUserController],
 
   imports: [UserRepoModuleConfig.toImport.Entity(), HttpModule],
 
   providers: [
     UserMapper,
     UserRepoMongoose,
+    CreateNewUserUseCase,
     { provide: userRepoProviderName, useClass: UserRepoMongoose },
   ],
 

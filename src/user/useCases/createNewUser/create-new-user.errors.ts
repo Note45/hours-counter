@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable max-classes-per-file */
 /* eslint-disable @typescript-eslint/no-namespace */
-import { DomainError } from '../../../../shared/core/domain/domain-errors';
+import { DomainError } from '../../../shared/core/domain/domain-errors';
 
 export type ICreateNewUserError =
   | CreateNewUserError.AlreadyRegisteredUser
