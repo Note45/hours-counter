@@ -5,6 +5,8 @@ export const envPrototypes = {
   DB_USER: String(),
   DB_PASS: String(),
   DB_PORT: String(),
+  EXP_TIME_JWT_TOKEN: String(),
+  JWT_TOKEN_SECRET: String(),
 };
 
 type IEnv = typeof envPrototypes;
