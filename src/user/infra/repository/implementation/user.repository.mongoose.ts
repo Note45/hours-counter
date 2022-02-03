@@ -30,6 +30,21 @@ export class UserRepoMongoose implements IUserRepo {
     return UserRepoErrors.UserGenericError.create('User not found!');
   }
 
+  async getUserByEmail(email: string): Promise<UserResponse<User>> {
+    const user = await this.UserModel.findOne({ email });
+
+    if (user) {
+      const result = this.userMapper.toDomain({
+        ...user.toJSON(),
+        id: user.toJSON()._id.toString(),
+      } as IUser);
+
+      if (result) return result;
+    }
+
+    return UserRepoErrors.UserGenericError.create('User not found!');
+  }
+
   async createUser(user: User): Promise<UserResponse<User>> {
     const newUser = await new this.UserModel(
       this.userMapper.toPersistence(user),

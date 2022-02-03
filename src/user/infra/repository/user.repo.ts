@@ -6,4 +6,5 @@ export type UserResponse<T> = IUserRepoErrors | T;
 export interface IUserRepo {
   getUserById(id: string): Promise<UserResponse<User>>;
   createUser(user: User): Promise<UserResponse<User>>;
+  getUserByEmail(email: string): Promise<UserResponse<User>>;
 }
