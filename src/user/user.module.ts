@@ -10,9 +10,11 @@ import {
   CreateNewUserController,
   CreateNewUserUseCase,
 } from './useCases/createNewUser';
+import { AuthUseCase } from './useCases/auth/auth.usecase';
+import { AuthController } from './useCases/auth';
 
 @Module({
-  controllers: [CreateNewUserController],
+  controllers: [CreateNewUserController, AuthController],
 
   imports: [UserRepoModuleConfig.toImport.Entity(), HttpModule],
 
@@ -20,6 +22,7 @@ import {
     UserMapper,
     UserRepoMongoose,
     CreateNewUserUseCase,
+    AuthUseCase,
     { provide: userRepoProviderName, useClass: UserRepoMongoose },
   ],
 
