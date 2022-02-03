@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import { sign, verify } from 'jsonwebtoken';
 
 import { ENVS } from '../../../environments';
 
@@ -7,7 +7,7 @@ export class TokenJwtHelper {
     userId: string,
     expiretime = ENVS.EXP_TIME_JWT_TOKEN,
   ) {
-    return jwt.sign(
+    return sign(
       {
         sub: userId,
         role: 'user',
@@ -21,7 +21,7 @@ export class TokenJwtHelper {
 
   public static validate(token: string): string | undefined {
     try {
-      const decoded: any = jwt.verify(token, ENVS.JWT_TOKEN_SECRET);
+      const decoded: any = verify(token, ENVS.JWT_TOKEN_SECRET);
       return decoded.sub;
     } catch (err) {
       return undefined;
