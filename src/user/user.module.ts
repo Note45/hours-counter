@@ -12,6 +12,7 @@ import {
 } from './useCases/createNewUser';
 import { AuthUseCase } from './useCases/auth/auth.usecase';
 import { AuthController } from './useCases/auth';
+import { UserService } from './services/user.service';
 
 @Module({
   controllers: [CreateNewUserController, AuthController],
@@ -20,6 +21,7 @@ import { AuthController } from './useCases/auth';
 
   providers: [
     UserMapper,
+    UserService,
     UserRepoMongoose,
     CreateNewUserUseCase,
     AuthUseCase,
