@@ -18,8 +18,8 @@ A ideia do projeto é ser um ambiente de estudo, desenvolvido durante o meu temp
 
 ## Requisitos iniciais:
 
-1. [X] - Usuário pode criar uma conta
-2. [ ] - Usuário pode fazer o login
+1. [X] - Usuário pode criar uma conta(email deve ser unico)
+2. [X] - Usuário pode fazer o login
 3. [ ] - Usuário pode listar as atividades já cadastradas com o seu respectivo tempo e descrição
 4. [ ] - Usuário pode cadastrar uma nova atividade junto do seu tempo de duração
 5. [ ] - Usuário pode adicionar horas/minutos as atividades já cadastradas
