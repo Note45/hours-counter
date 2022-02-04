@@ -37,6 +37,10 @@ describe('UserRepoMongoose Suit Test', () => {
     await MongoInjectionJest.createServer();
   });
 
+  afterEach(async () => {
+    await MongoInjectionJest.disconnect();
+  });
+
   it('should be able to create an user on data base with userBaseStub infos', async () => {
     const sut = await makeSutModule(MongoInjectionJest.serverUri);
     const user = userBaseStub as User;
@@ -58,6 +62,27 @@ describe('UserRepoMongoose Suit Test', () => {
 
     expect(createdUserResult).toBeInstanceOf(User);
     expect(getUserByIdResult.id).toEqual(createdUserResult.id);
+    expect(getUserByIdResult.name).toEqual(createdUserResult.name);
+    expect(getUserByIdResult.phone).toEqual(createdUserResult.phone);
+    expect(getUserByIdResult.email).toEqual(createdUserResult.email);
+    expect(getUserByIdResult.password).toEqual(createdUserResult.password);
+  });
+
+  it('should be able to get created user by email', async () => {
+    const sut = await makeSutModule(MongoInjectionJest.serverUri);
+    const user = userBaseStub as User;
+    const createdUserResult = (await sut.userRepoMongoose.createUser(
+      user,
+    )) as User;
+
+    const getUserByIdResult = (await sut.userRepoMongoose.getUserByEmail(
+      createdUserResult.email,
+    )) as User;
+
+    expect(createdUserResult).toBeInstanceOf(User);
+    expect(getUserByIdResult.id.toString()).toEqual(
+      createdUserResult.id.toString(),
+    );
     expect(getUserByIdResult.name).toEqual(createdUserResult.name);
     expect(getUserByIdResult.phone).toEqual(createdUserResult.phone);
     expect(getUserByIdResult.email).toEqual(createdUserResult.email);
