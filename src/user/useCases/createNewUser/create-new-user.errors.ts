@@ -31,7 +31,7 @@ export namespace CreateNewUserError {
 
   export class OnDatabaseCreateNewUserError extends DomainError {
     public constructor(error: string) {
-      super(`Erro ao criar usuário: ${error}`);
+      super(`Error create user: ${error}`);
     }
 
     public static create(error: string): OnDatabaseCreateNewUserError {
