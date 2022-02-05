@@ -61,6 +61,8 @@ export class UserRepoMongoose implements IUserRepo {
       }
     }
 
-    return UserRepoErrors.InvalidUserInfoError.create('');
+    return UserRepoErrors.UserGenericError.create(
+      'Error when try save user on data base!',
+    );
   }
 }
