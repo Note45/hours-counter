@@ -60,16 +60,21 @@ describe('UserMapper suit tests', () => {
       email: 'test@teste.com',
       phone: '89981842344',
       password: 'test-password',
+      id: 'valid-id',
+      _id: 'valid-id',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
 
     const userDtoResult = makeSutToDTO(userDomainResult);
 
-    expect(userDtoResult.id).toBeUndefined();
+    expect(userDtoResult.id).toBe(userDomainResult.id.toString());
     expect(userDtoResult.name).toBe(userDomainResult.name);
     expect(userDtoResult.email).toBe(userDomainResult.email);
     expect(userDtoResult.phone).toBe(userDomainResult.phone);
+    expect(userDomainResult.createdAt).toBeDefined();
+    expect(userDomainResult.updatedAt).toBeDefined();
     expect(userDtoResult['password']).toBeUndefined();
-    expect(userDomainResult.createdAt).toBeUndefined();
-    expect(userDomainResult.updatedAt).toBeUndefined();
+    expect(userDtoResult['_id']).toBeUndefined();
   });
 });
