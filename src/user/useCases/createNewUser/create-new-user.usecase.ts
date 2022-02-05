@@ -51,7 +51,7 @@ export class CreateNewUserUseCase implements ICreateNewUserUseCase {
     );
 
     if ((newUserOrErrorCreated as IUserError).message) {
-      CreateNewUserError.OnDatabaseCreateNewUserError.create(
+      return CreateNewUserError.OnDatabaseCreateNewUserError.create(
         (newUserOrErrorCreated as IUserError).message,
       );
     }

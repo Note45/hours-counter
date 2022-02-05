@@ -21,7 +21,7 @@ export namespace CreateNewUserError {
 
   export class InvalidParamError extends DomainError {
     public constructor(propName: string) {
-      super(`Parameter ${propName} is invalid!`);
+      super(`Parameter error: ${propName}`);
     }
 
     public static create(fieldName: string): InvalidParamError {
