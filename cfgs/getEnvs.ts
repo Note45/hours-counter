@@ -45,16 +45,12 @@ export const getEnvs = (env: Record<string, string>) => {
     }
   });
   if (missingEnvs.length > 0) {
-    throw new Error(
-      `As seguintes vars de ambiente não foram definidas: [${missingEnvs}]`,
-    );
+    throw new Error(`This ENVs is not defined: [${missingEnvs}]`);
   }
   const wrongTypeEnvKeys = Object.keys(wrongTypeEnvs);
   if (wrongTypeEnvKeys.length > 0) {
     throw new Error(
-      `As seguintes vars de ambiente não podem ser convertidas para o tipo desejado: ${JSON.stringify(
-        wrongTypeEnvs,
-      )}`,
+      `This ENVs is with the wrong type: ${JSON.stringify(wrongTypeEnvs)}`,
     );
   }
   return envObj;
