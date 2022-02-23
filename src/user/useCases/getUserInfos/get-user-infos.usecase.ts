@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Types } from 'mongoose';
 import { injectUserRepo } from '../../infra/repository/user.repo.decorator';
 import { IUseCase } from '../../../shared/utils/use-case';
 import { User } from '../../domain/user.domain';
@@ -10,6 +9,7 @@ import {
   GetUserInfoErrors,
 } from './get-user-infos.errors';
 import { GetUserInfosDTO } from './get-user-infos.dto';
+import { UniqueEntityID } from '../../../shared/utils/unique-entity-id.utils';
 
 type IResponse = IGetUserInfosErrorError | User;
 
@@ -21,7 +21,7 @@ export class GetUserInfosUseCase implements IGetUserInfosUseCase {
   constructor(@injectUserRepo private userRepo: IUserRepo) {}
 
   async execute(dto: GetUserInfosDTO): Promise<IResponse> {
-    const isUserIdAValidId = Types.ObjectId.isValid(dto.userId);
+    const isUserIdAValidId = UniqueEntityID.validate(dto.userId);
 
     if (!isUserIdAValidId) {
       return GetUserInfoErrors.GetUserInfosError.create('User not found!');
