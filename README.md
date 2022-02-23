@@ -20,11 +20,12 @@ A ideia do projeto é ser um ambiente de estudo, desenvolvido durante o meu temp
 
 1. [X] - Usuário pode criar uma conta(email deve ser unico)
 2. [X] - Usuário pode fazer o login
-3. [ ] - Usuário pode listar as atividades já cadastradas com o seu respectivo tempo e descrição
-4. [ ] - Usuário pode cadastrar uma nova atividade junto do seu tempo de duração
-5. [ ] - Usuário pode adicionar horas/minutos as atividades já cadastradas
-6. [ ] - Usuário pode cadastrar uma nova categoria de atividade, assim como a descrição opicional e o tempo gasto nela
-7. [ ] - Usuário pode ter tanto o total de horas gasto como o quanto foi gasto em qual dia. 
+3. [x] - Usuário pode listar suas informações (falta adicionar necessidade de autenticação nessa rota)
+4. [ ] - Usuário pode listar as atividades já cadastradas com o seu respectivo tempo e descrição
+5. [ ] - Usuário pode cadastrar uma nova atividade junto do seu tempo de duração
+6. [ ] - Usuário pode adicionar horas/minutos as atividades já cadastradas
+7. [ ] - Usuário pode cadastrar uma nova categoria de atividade, assim como a descrição opicional e o tempo gasto nela
+8. [ ] - Usuário pode ter tanto o total de horas gasto como o quanto foi gasto em qual dia. 
 
 ## Requisitos Futuros
 
@@ -70,11 +71,11 @@ Parametros body:
 }
 ```
 
-## 3. GET /user
+## 4. GET /user
 
 Rota utilizada para pegar as informações do cliente, a identificação do usuário será feita pelo JWT token. 
 
-## 4. POST /user/activities
+## 5. POST /user/activities
 
 Rota utilizada para cadastrar uma nova atividade
 
@@ -89,7 +90,7 @@ Parametros body:
 }
 ```
 
-## 4. POST /user/activities/category
+## 6. POST /user/activities/category
 
 Rota utilizada para cadastrar uma nova categoria
 
@@ -102,7 +103,7 @@ Parametros body:
 }
 ```
 
-## 4. PUT /user/activities/:id
+## 7. PUT /user/activities/:id
 
 Rota utilizada para atualizar uma atividade 
 
