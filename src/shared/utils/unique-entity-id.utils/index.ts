@@ -20,8 +20,7 @@ export class UniqueEntityID extends Identifier<string> {
   }
 
   public static validate(id: string) {
-    if (mongoose.Types.ObjectId.isValid(id)) return true;
-    return false;
+    return !!mongoose.Types.ObjectId.isValid(id);
   }
 
   toObjectID(): mongoose.Types.ObjectId {
