@@ -71,7 +71,7 @@ Parametros body:
 }
 ```
 
-## 4. GET /user
+## 4. GET /user/:userId
 
 Rota utilizada para pegar as informações do cliente, a identificação do usuário será feita pelo JWT token. 
 
