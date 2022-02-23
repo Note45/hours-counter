@@ -13,9 +13,17 @@ import {
 import { AuthUseCase } from './useCases/auth/auth.usecase';
 import { AuthController } from './useCases/auth';
 import { UserService } from './services/user.service';
+import {
+  GetUserInfosController,
+  GetUserInfosUseCase,
+} from './useCases/getUserInfos';
 
 @Module({
-  controllers: [CreateNewUserController, AuthController],
+  controllers: [
+    CreateNewUserController,
+    AuthController,
+    GetUserInfosController,
+  ],
 
   imports: [UserRepoModuleConfig.toImport.Entity(), HttpModule],
 
@@ -25,6 +33,7 @@ import { UserService } from './services/user.service';
     UserRepoMongoose,
     CreateNewUserUseCase,
     AuthUseCase,
+    GetUserInfosUseCase,
     { provide: userRepoProviderName, useClass: UserRepoMongoose },
   ],
 
