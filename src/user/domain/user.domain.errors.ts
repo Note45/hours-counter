@@ -11,11 +11,11 @@ export type IUserError =
 export namespace UserError {
   export class InvalidUserInfoError extends DomainError {
     public constructor(propName: string) {
-      super(`${propName} inválido(a)!`);
+      super(`${propName} invalid!`);
     }
 
     public static create(fieldName?: string): InvalidUserInfoError {
-      const propNameOrDefaultError = fieldName || 'Alguma propriedade está';
+      const propNameOrDefaultError = fieldName || 'Some property is';
       return new InvalidUserInfoError(propNameOrDefaultError);
     }
   }
