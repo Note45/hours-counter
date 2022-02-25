@@ -68,7 +68,6 @@ export class User extends Entity<IUserProps> {
         value: props.password,
       });
 
-      // Add test to test this case!
       if (passwordOrError instanceof DomainError) {
         return passwordOrError as unknown as IUserError;
       }
