@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME:admin
+      - MONGO_INITDB_ROOT_PASSWORD:admin
+      - MONGO_INITDB_DATABASE:hours_counter
+    networks:
+      - node-webapp-network
+    volumes:
+      - mongodata:/data/mongodb
+  app:
+    build: .
+    container_name: hours_counter
+    restart: always
+    ports:
+      - 3025:3025
+    volumes:
+      - .:/use/app
+    links: 
+      - mongodb
+    depends_on:
+      - mongodb
+    env_file: .env
+    environment:
+      WAIT_HOSTS:  mongodb:27017
+    networks:
+      - node-webapp-network
+volumes:
+  mongodata:
+    driver: local
+networks:
+  node-webapp-network:
+    driver: bridge
