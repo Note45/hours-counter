@@ -17,15 +17,16 @@ import {
   GetUserInfosController,
   GetUserInfosUseCase,
 } from './useCases/getUserInfos';
+import { JwtStrategy } from '../shared/core/infra/auth/jwt.strategy';
 
 @Module({
+  imports: [UserRepoModuleConfig.toImport.Entity(), HttpModule, JwtStrategy],
+
   controllers: [
     CreateNewUserController,
     AuthController,
     GetUserInfosController,
   ],
-
-  imports: [UserRepoModuleConfig.toImport.Entity(), HttpModule],
 
   providers: [
     UserMapper,
@@ -34,6 +35,7 @@ import {
     CreateNewUserUseCase,
     AuthUseCase,
     GetUserInfosUseCase,
+    JwtStrategy,
     { provide: userRepoProviderName, useClass: UserRepoMongoose },
   ],
 
