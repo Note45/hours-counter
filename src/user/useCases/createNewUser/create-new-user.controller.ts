@@ -1,6 +1,5 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
-import { User } from '../../domain/user.domain';
 import { IUserError } from '../../domain/user.domain.errors';
 import { CreateNewUserDTO } from './create-new-user.dto';
 import { CreateNewUserUseCase } from './create-new-user.usecase';
@@ -30,9 +29,7 @@ export class CreateNewUserController {
           error: 'Bad Request',
         });
       }
-      return response
-        .status(201)
-        .json(this.mapper.toDTO(newUserOrError as User));
+      return response.status(201).send();
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Error:${error} \n`);
