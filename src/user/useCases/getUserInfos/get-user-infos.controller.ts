@@ -1,10 +1,9 @@
-import { Controller, Get, Param, Res, UseGuards } from '@nestjs/common';
-import { Response } from 'express';
+import { Controller, Get, Req, Res, UseGuards } from '@nestjs/common';
+import { Response, Request } from 'express';
 import { User } from '../../domain/user.domain';
 import { IUserError } from '../../domain/user.domain.errors';
 import { GetUserInfosUseCase } from './get-user-infos.usecase';
 import { UserMapper } from '../../domain/mapper/user.mapper';
-import { GetUserInfosDTO } from './get-user-infos.dto';
 import { JwtAuthGuard } from '../../../shared/core/infra/guards/jwt-auth.guard';
 
 @Controller('/user')
@@ -16,10 +15,12 @@ export class GetUserInfosController {
   ) {}
 
   @UseGuards(JwtAuthGuard)
-  @Get('/:userId')
-  async Handle(@Param() dto: GetUserInfosDTO, @Res() response: Response) {
+  @Get()
+  async Handle(@Req() request: Request, @Res() response: Response) {
     try {
-      const userOrError = await this.getUserInfosUseCase.execute(dto);
+      const userOrError = await this.getUserInfosUseCase.execute({
+        userId: request.user.userId,
+      });
 
       if ((userOrError as IUserError).message) {
         return response.status(400).json({
