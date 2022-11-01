@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { injectUserRepo } from '../../infra/repository/user.repo.decorator';
-import { IUseCase } from '../../../shared/utils/use-case';
+import { IUseCase } from '../../../../shared/utils/use-case';
 import { UserMapper } from '../../domain/mapper/user.mapper';
 import { User } from '../../domain/user.domain';
 import { IUserError } from '../../domain/user.domain.errors';

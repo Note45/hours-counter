@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { injectUserRepo } from '../../infra/repository/user.repo.decorator';
-import { IUseCase } from '../../../shared/utils/use-case';
+import { IUseCase } from '../../../../shared/utils/use-case';
 import { User } from '../../domain/user.domain';
 import { IUserError } from '../../domain/user.domain.errors';
 import { IUserRepo } from '../../infra/repository/user.repo';
@@ -9,7 +9,7 @@ import {
   GetUserInfoErrors,
 } from './get-user-infos.errors';
 import { GetUserInfosDTO } from './get-user-infos.dto';
-import { UniqueEntityID } from '../../../shared/utils/unique-entity-id.utils';
+import { UniqueEntityID } from '../../../../shared/utils/unique-entity-id.utils';
 
 type IResponse = IGetUserInfosErrorError | User;
 

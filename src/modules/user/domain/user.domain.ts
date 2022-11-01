@@ -1,10 +1,10 @@
-import { Entity } from '../../shared/core/domain/entity';
+import { Entity } from '../../../shared/core/domain/entity';
 import { IUser } from './interfaces/user.interface';
-import { UniqueEntityID } from '../../shared/utils/unique-entity-id.utils';
-import { Guard } from '../../shared/utils/guard.utils';
+import { UniqueEntityID } from '../../../shared/utils/unique-entity-id.utils';
+import { Guard } from '../../../shared/utils/guard.utils';
 import { UserError, IUserError } from './user.domain.errors';
 import { Password } from './props/password';
-import { DomainError } from '../../shared/core/domain/domain-errors';
+import { DomainError } from '../../../shared/core/domain/domain-errors';
 
 export type IUserProps = IUser;
 

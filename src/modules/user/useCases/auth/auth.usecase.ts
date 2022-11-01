@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { injectUserRepo } from 'src/user/infra/repository/user.repo.decorator';
-import { TokenJwtHelper } from '../../../shared/utils/jwt-token.utils';
-import { IUseCase } from '../../../shared/utils/use-case';
+import { injectUserRepo } from 'src/modules/user/infra/repository/user.repo.decorator';
+import { TokenJwtHelper } from '../../../../shared/utils/jwt-token.utils';
+import { IUseCase } from '../../../../shared/utils/use-case';
 import { User } from '../../domain/user.domain';
 import { IUserError } from '../../domain/user.domain.errors';
 import { IUserRepo } from '../../infra/repository/user.repo';

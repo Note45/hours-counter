@@ -1,4 +1,4 @@
-import { DomainError } from '../../../shared/core/domain/domain-errors';
+import { DomainError } from '../../../../shared/core/domain/domain-errors';
 import { IPassword } from '../interfaces/password.interface';
 import { Password } from './password';
 

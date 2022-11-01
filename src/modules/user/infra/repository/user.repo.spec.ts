@@ -1,6 +1,6 @@
 import { MongooseModule } from '@nestjs/mongoose';
 import { Test } from '@nestjs/testing';
-import { MongoInjectionJest } from '../../../shared/utils/mongo-injection-jest.utils';
+import { MongoInjectionJest } from '../../../../shared/utils/mongo-injection-jest.utils';
 import { UserMapper } from '../../domain/mapper/user.mapper';
 import { User } from '../../domain/user.domain';
 import { UserEntity, UserSchema } from '../entities/user.entity';

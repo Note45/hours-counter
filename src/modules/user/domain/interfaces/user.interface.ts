@@ -1,4 +1,4 @@
-import { UniqueEntityID } from '../../../shared/utils/unique-entity-id.utils';
+import { UniqueEntityID } from '../../../../shared/utils/unique-entity-id.utils';
 import { IPassword } from './password.interface';
 
 export interface IUser {

@@ -4,7 +4,7 @@ import { User } from '../../domain/user.domain';
 import { IUserError } from '../../domain/user.domain.errors';
 import { GetUserInfosUseCase } from './get-user-infos.usecase';
 import { UserMapper } from '../../domain/mapper/user.mapper';
-import { JwtAuthGuard } from '../../../shared/core/infra/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../../../../shared/core/infra/guards/jwt-auth.guard';
 
 @Controller('/user')
 export class GetUserInfosController {

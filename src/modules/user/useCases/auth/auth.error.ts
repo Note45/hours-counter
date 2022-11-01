@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import { DomainError } from '../../../shared/core/domain/domain-errors';
+import { DomainError } from '../../../../shared/core/domain/domain-errors';
 
 export type IAuthErrors = AuthErrors.AuthCredentialsError;
 

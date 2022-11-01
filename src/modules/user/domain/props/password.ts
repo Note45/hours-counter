@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import * as bcrypt from 'bcryptjs';
-import { ValueObject } from '../../../shared/core/domain/value-object';
-import { Guard } from '../../../shared/utils/guard.utils';
+import { ValueObject } from '../../../../shared/core/domain/value-object';
+import { Guard } from '../../../../shared/utils/guard.utils';
 import { IUserError, UserError } from '../user.domain.errors';
 import { IPassword } from '../interfaces/password.interface';
 
