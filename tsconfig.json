@@ -16,5 +16,10 @@
       "./node_module/@types",
       "./src/types"
     ],
+    "paths": {
+      "@modules/*": ["src/modules/*"],
+      "@shared/*": ["src/shared/*"],
+      "@root/*": ["src/*"],
+    }
   }
 }

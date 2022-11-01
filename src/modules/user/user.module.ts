@@ -17,7 +17,7 @@ import {
   GetUserInfosController,
   GetUserInfosUseCase,
 } from './useCases/getUserInfos';
-import { JwtStrategy } from '../../shared/core/infra/auth/jwt.strategy';
+import { JwtStrategy } from '@shared/core/infra/auth/jwt.strategy';
 
 @Module({
   imports: [UserRepoModuleConfig.toImport.Entity(), HttpModule, JwtStrategy],
