@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { pathsToModuleNameMapper } = require('ts-jest');
 const { defaults: tsjPreset } = require('ts-jest/presets');
-const { compilerOptions } = require('./tsconfig');
+const { pathsToModuleNameMapper } = require('ts-jest');
+const { compilerOptions } = require('./tsconfig.json');
 
 module.exports = {
   roots: ['<rootDir>'],
@@ -10,7 +10,6 @@ module.exports = {
   testEnvironment: 'node',
   rootDir: '.',
   moduleFileExtensions: ['ts', 'js', 'json'],
-  modulePaths: ['<rootDir>'],
   collectCoverageFrom: ['**/*.(t|j)s'],
   globals: {
     'ts-jest': {
@@ -19,4 +18,8 @@ module.exports = {
   },
   coverageDirectory: '../coverage',
   setupFiles: ['<rootDir>config-ts-auto-mock.ts'],
+  modulePaths: [compilerOptions.baseUrl],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/',
+  }),
 };

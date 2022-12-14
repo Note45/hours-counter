@@ -8,7 +8,9 @@ import { User } from '../../domain/user.domain';
 import { UserService } from '../../services/user.service';
 import { CreateNewUserError } from './create-new-user.errors';
 
-jest.mock('src/user/infra/repository/implementation/user.repository.mongoose');
+jest.mock(
+  '@modules/user/infra/repository/implementation/user.repository.mongoose',
+);
 
 describe('CreateNewUser Suit Test', () => {
   let userRepoMongoose: UserRepoMongoose;

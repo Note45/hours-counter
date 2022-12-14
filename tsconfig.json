@@ -13,13 +13,13 @@
     "incremental": true,
     "skipLibCheck": true,
     "typeRoots": [
-      "./node_module/@types",
+      "./node_modules/@types",
       "./src/types"
     ],
     "paths": {
       "@modules/*": ["src/modules/*"],
       "@shared/*": ["src/shared/*"],
-      "@root/*": ["src/*"],
+      "@root/*": ["src/*"]
     }
   }
 }
