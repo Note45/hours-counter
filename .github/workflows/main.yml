@@ -39,7 +39,7 @@ jobs:
         run: yarn install
 
       - name: Run backend unit and integration tests
-        run: yarn test
+        run: yarn test:ci
 
       - if: always()
         uses: ouzi-dev/commit-status-updater@v1.1.0
