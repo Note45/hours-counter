@@ -33,7 +33,7 @@ const categoryBaseStub = categoryMapper.toDomain({
   updatedAt: new Date(),
 });
 
-describe('UserRepoMongoose Suit Test', () => {
+describe('CategoryRepoMongoose Suit Test', () => {
   beforeEach(async () => {
     await MongoInjectionJest.createServer();
   });
@@ -42,7 +42,7 @@ describe('UserRepoMongoose Suit Test', () => {
     await MongoInjectionJest.disconnect();
   });
 
-  it('should be able to create an category on data base with userBaseStub infos', async () => {
+  it('should be able to create an category on data base with categoryBaseStub infos', async () => {
     const sut = await makeSutModule(MongoInjectionJest.serverUri);
     const category = categoryBaseStub as Category;
     const result = await sut.categoryRepoMongoose.createCategory(category);
