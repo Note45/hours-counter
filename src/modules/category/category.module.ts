@@ -5,6 +5,7 @@ import {
   categoryRepoProviderName,
 } from './infra/repository/category.repo.config';
 import { CategoryRepoMongoose } from './infra/repository/implementation/category.repo.mongoose';
+import { CategoryService } from './services/category.service';
 
 @Module({
   imports: [CategoryRepoModuleConfig.toImport.Entity(), HttpModule],
@@ -14,6 +15,7 @@ import { CategoryRepoMongoose } from './infra/repository/implementation/category
   providers: [
     CategoryMapper,
     CategoryRepoMongoose,
+    CategoryService,
     { provide: categoryRepoProviderName, useClass: CategoryRepoMongoose },
   ],
 
